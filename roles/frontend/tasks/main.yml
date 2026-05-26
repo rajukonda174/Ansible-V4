@@ -5,6 +5,7 @@
         state: latest
 
     - name: copy nginx conf
+      notify: restart nginx
       ansible.builtin.template:
         src: nginx.conf
         dest: /etc/nginx/nginx.conf
@@ -28,5 +29,5 @@
     - name: nginx start
       ansible.builtin.systemd_service:
         name: nginx
-        state: restarted
+        state: started
         enabled: yes
