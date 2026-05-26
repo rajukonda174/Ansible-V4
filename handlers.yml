@@ -1,4 +1,4 @@
-- name: Jinja templates
+- name: Variable from inventry
   hosts: localhost
   connection: local
   vars:
@@ -7,16 +7,17 @@
       - apple
       - banana
       - orange
-    fruits_with_prices:
-    - { name: apple, price: 100 }
-    - { name: banana, price: 200 }
-    - { name: orange, price: 600 }
+
+    fruits_with_price:
+      - { name: apple, price: 100 }
+      - { name: banana, price: 200 }
+      - { name: orange, price: 600 }
   tasks:
     - name: copy template with map
       notify: print a message
       ansible.builtin.template:
-        src: sample.txt
-        dest: /tmp/s3.txt
+           src: sample.txt
+           dest: /tmp/s3.txt
   Handlers:
     - name: print a message
       ansible.builtin.debug:
