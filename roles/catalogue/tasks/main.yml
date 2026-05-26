@@ -1,0 +1,14 @@
+- name: Import golang from common role
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: golang.yml
+
+- name: install mysql
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: mysql-schema.yml
+
+- name: Load Master Data
+  ansible.builtin.shell: mysql -h mysql-{{ env }}.rajukonda.online -u root -pRoboShop@1 {{ component_name }} < db/master-data.sql
+  args:
+     chdir: /app

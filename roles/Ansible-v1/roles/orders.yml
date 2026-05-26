@@ -1,0 +1,5 @@
+- name: setup order module
+  hosts: all
+  become: yes
+  roles:
+    - orders

@@ -1,0 +1,13 @@
+value of x - {{ x }}
+
+{% for fruit in fruits %}
+  Fruit - {{ fruit }}
+  {% endfor %}
+
+{% for fruit in fruits_with_price %}
+{% if fruit.price < 500 %}
+ Fruit Name - {{ fruit.name }} , {{ fruit.price }}, premium - No
+{% else %}
+ Fruit Name - {{ fruit.name }} , {{ fruit.price }}, premium - yes
+{% endif %}
+{% endfor %}

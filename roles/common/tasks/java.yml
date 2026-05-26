@@ -1,0 +1,23 @@
+- name: Load pre requisites
+  ansible.builtin.include_tasks: pre-reqs.yml
+
+- name: Install python
+  ansible.builtin.dnf:
+    name:
+      - java-21-openjdk
+      - java-21-openjdk-devel
+      - maven
+    state: present
+
+- name: build Application code
+  ansible.builtin.shell: mvn clean package -DskipTests
+  args:
+    chdir: /app
+
+- name: Copy Jar file
+  ansible.builtin.shell: cp target/{{ component_name }}.jar /app/{{ component_name }}.jar
+  args:
+    chdir: /app
+
+- name: Load pre requisites
+  ansible.builtin.include_tasks: systemd.yml

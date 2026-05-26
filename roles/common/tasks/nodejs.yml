@@ -1,0 +1,18 @@
+- name: Load pre requisites
+  ansible.builtin.include_tasks: pre-reqs.yml
+
+- name: Download App Dependencies
+  ansible.builtin.shell: npm install --production
+  args:
+    chdir: /app
+
+- name: Install NodeJS
+  ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_20.x | bash -
+
+- name: Install NodeJS
+  ansible.builtin.dnf:
+    name: nodejs
+    state: present
+
+- name: Load pre requisites
+  ansible.builtin.include_tasks: systemd.yml

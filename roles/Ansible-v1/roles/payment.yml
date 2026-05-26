@@ -1,0 +1,5 @@
+- name: setup payment
+  hosts: all
+  become: yes
+  roles:
+    - payment

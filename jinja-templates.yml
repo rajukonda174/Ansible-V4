@@ -1,0 +1,23 @@
+- name: Jinja templates
+  hosts: localhost
+  connection: local
+  vars:
+    x: 100
+    fruits:
+      - apple
+      - banana
+      - orange
+    fruits_with_price:
+      - { name: apple, price: 100 }
+      - { name: banana, price: 200 }
+      - { name: orange, price: 600 }
+  tasks:
+    - name: copy
+      copy:
+        src: sample.txt
+        dest: /tmp/s1.txt
+
+    - name: template
+      template:
+        src: sample.txt
+        dest: /tmp/s2.txt
