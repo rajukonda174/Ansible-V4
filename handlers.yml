@@ -7,7 +7,7 @@
       - apple
       - banana
       - orange
-    fruits_with_price:
+    fruits_with_prices:
     - { name: apple, price: 100 }
     - { name: banana, price: 200 }
     - { name: orange, price: 600 }
