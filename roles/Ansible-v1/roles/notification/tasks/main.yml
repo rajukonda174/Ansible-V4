@@ -17,7 +17,7 @@
         state: directory
 
     - name: copy notification service
-      ansible.builtin.copy:
+      ansible.builtin.template:
         src: notification.service
         dest: /etc/systemd/system/notification.service
 

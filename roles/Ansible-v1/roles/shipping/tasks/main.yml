@@ -17,7 +17,7 @@
         state: directory
     - name: copy cart service
 
-      ansible.builtin.copy:
+      ansible.builtin.template:
         src: shipping.service
         dest: /etc/systemd/system/shipping.service
 

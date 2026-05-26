@@ -18,7 +18,7 @@
 
 
     - name: copy ratings service
-      ansible.builtin.copy:
+      ansible.builtin.template:
         src: ratings.service
         dest: /etc/systemd/system/ratings.service
 

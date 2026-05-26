@@ -17,7 +17,7 @@
         state: directory
 
     - name: copy order service
-      ansible.builtin.copy:
+      ansible.builtin.template:
         src: orders.service
         dest: /etc/systemd/system/orders.service
 
