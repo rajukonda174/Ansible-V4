@@ -1,6 +1,7 @@
 - name: Variable from inventry
   hosts: localhost
   connection: local
+  become: yes
   tasks:
     - name: install nginx
       ansible.builtin.dnf:
