@@ -1,0 +1,15 @@
+- name: Variable from inventry
+  hosts: localhost
+  connection: local
+  tasks:
+
+  - name: Install Nginx only on RedHat
+    ansible.builtin.dnf:
+     name: nginx
+     state: present
+     when: ansible_facts['os_family'] == "RedHat"
+  - name: Install Nginx only on Debian
+    ansible.builtin.apt:
+     name: nginx
+     state: present
+     when: ansible_facts['os_family'] == "Debian"
