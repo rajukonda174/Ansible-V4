@@ -2,5 +2,5 @@ component_name: catalogue
 schema_load: true
 schema_files:
   - schema
-  - app_user
+  - app-user
   - master-data
