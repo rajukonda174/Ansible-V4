@@ -9,3 +9,4 @@
       - name: config file update
         ansible.builtin.copy:
           content: "IP: {{ansible_facts['default_ipv4']['address']}}"
+          dest: /tmp/ip
